@@ -1,0 +1,5 @@
+#surefire
+#Mon Aug 31 12:07:28 CST 2015
+user.dir=/root/git/DeepLucene
+localRepository=/workspace/repositories
+basedir=/root/git/DeepLucene
