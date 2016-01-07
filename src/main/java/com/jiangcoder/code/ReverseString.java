@@ -18,7 +18,6 @@ public class ReverseString {
 	public static String Reverse(String s,int n){
 		char[]temp=s.toCharArray();
 		for(int i=0;i<temp.length;i++){
-			s.
 		}
 		return s;
 	}
