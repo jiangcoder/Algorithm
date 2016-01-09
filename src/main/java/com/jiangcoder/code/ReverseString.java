@@ -13,12 +13,46 @@ public class ReverseString {
  * @param args
  */
 	public static void main(String[] args) {
-		System.out.println(Reverse("woaini",2));
+		System.out.println(ReverseJuly("woaini",3));
 	}
+	/**
+	 * author jiangtao
+	 * @param s
+	 * @param n
+	 * @return
+	 */
 	public static String Reverse(String s,int n){
 		char[]temp=s.toCharArray();
-		for(int i=0;i<temp.length;i++){
+		String result = s.substring(n, s.length());
+		System.out.println(result);
+		if(s.length()>=n){
+			for(int i=0;i<n;i++){
+				result=result+temp[i];
+			}
 		}
-		return s;
+
+		return result;
+	}
+	/**
+	 * 暴力移位法
+	 * @param s
+	 * @param n
+	 * @return
+	 */
+	public static String ReverseJuly(String s,int n){
+		char[]temp=s.toCharArray();
+		while (n-->0) {
+			char first=temp[0];
+			for(int i=1;i<s.length();i++){
+				temp[i-1]=temp[i];
+			}
+			temp[s.length()-1]=first;	
+		}
+
+		String result="";
+		for(int i=0;i< temp.length;i++){
+			result=result+temp[i];
+		}
+		return result;
 	}
 }
