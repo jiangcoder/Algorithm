@@ -1,0 +1,97 @@
+_template/group_template  put  方式
+
+
+{
+  "order": 0,
+  "template": "group_*",
+  "settings": {
+    "index.similarity.cbm25.k1": "1.2",
+    "index.number_of_replicas": "0",
+    "index.similarity.cbm25.b": "0.75",
+    "index.number_of_shards": "1",
+    "index.similarity.base.type": "simple",
+    "index.similarity.cbm25.type": "BM25"
+  },
+  "mappings": {
+    "groupType": {
+      "properties": {
+        "groupOnId": {
+          "index": "not_analyzed",
+          "store": "yes",
+          "type": "string"
+        },
+        "image": {
+          "index": "not_analyzed",
+          "store": "yes",
+          "type": "string"
+        },
+        "tuanGouPrice": {
+          "store": "yes",
+          "type": "double"
+        },
+        "discountRate": {
+          "store": "yes",
+          "type": "double"
+        },
+        "salesVolume": {
+          "store": "yes",
+          "type": "integer"
+        },
+        "buyNumber": {
+          "store": "yes",
+          "type": "integer"
+        },
+        "sort": {
+          "store": "yes",
+          "type": "integer"
+        },
+        "title": {
+          "similarity": "cbm25",
+          "analyzer": "whitespace",
+          "omit_norms": true,
+          "store": "yes",
+          "type": "string"
+        },
+        "sales": {
+          "store": "yes",
+          "type": "double"
+        },
+        "groupName": {
+          "index": "not_analyzed",
+          "store": "yes",
+          "type": "string"
+        },
+        "startTime": {
+          "store": "yes",
+          "type": "long"
+        },
+        "endTime": {
+          "store": "yes",
+          "type": "long"
+        },
+        "id": {
+          "index": "not_analyzed",
+          "store": "yes",
+          "type": "string"
+        },
+        "category": {
+          "index": "not_analyzed",
+          "store": "yes",
+          "type": "string"
+        },
+        "increasedSales": {
+          "store": "yes",
+          "type": "double"
+        },
+        "listPrice": {
+          "store": "yes",
+          "type": "double"
+        },
+        "budget": {
+          "store": "yes",
+          "type": "double"
+        }
+      }
+    }
+  }
+}
