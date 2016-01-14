@@ -1,0 +1,178 @@
+"nested_t": {
+
+    "order": 0,
+    "template": "nested_*",
+    "settings": {
+        "index.similarity.base.type": "Custom",
+        "index.number_of_replicas": "0",
+        "index.number_of_shards": "2"
+    },
+    "mappings": {
+        "product": {
+            "properties": {
+                "productId": {
+                    "store": true,
+                    "type": "string"
+                },
+                "sku": {
+                    "dynamic_templates": [
+                        {
+                            "facet_template": {
+                                "mapping": {
+                                    "index": "not_analyzed",
+                                    "type": "string"
+                                },
+                                "match_mapping_type": "string",
+                                "match": "f.*"
+                            }
+                        }
+                        ,
+                        {
+                            "areasalesVolume_template": {
+                                "mapping": {
+                                    "type": "integer"
+                                },
+                                "match_mapping_type": "integer",
+                                "match": "s.*"
+                            }
+                        }
+                    ],
+                    "type": "nested",
+                    "properties": {
+                        "ignoreProductTag": {
+                            "index": "not_analyzed",
+                            "store": "yes",
+                            "type": "string"
+                        },
+                        "salesVolume": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "shopName": {
+                            "index": "not_analyzed",
+                            "store": true,
+                            "type": "string"
+                        },
+                        "n-gram": {
+                            "norms": {
+                                "enabled": false
+                            },
+                            "analyzer": "whitespace",
+                            "type": "string"
+                        },
+                        "title": {
+                            "norms": {
+                                "enabled": false
+                            },
+                            "analyzer": "whitespace",
+                            "type": "string"
+                        },
+                        "price": {
+                            "store": true,
+                            "type": "float"
+                        },
+                        "evaluateCount": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "productTag": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "shopId": {
+                            "index": "not_analyzed",
+                            "store": true,
+                            "type": "string"
+                        },
+                        "categories": {
+                            "index": "not_analyzed",
+                            "store": true,
+                            "type": "string"
+                        },
+                        "skuId": {
+                            "index": "not_analyzed",
+                            "store": true,
+                            "type": "string"
+                        },
+                        "a": {
+                            "norms": {
+                                "enabled": false
+                            },
+                            "analyzer": "whitespace",
+                            "type": "string"
+                        },
+                        "c": {
+                            "norms": {
+                                "enabled": false
+                            },
+                            "analyzer": "whitespace",
+                            "type": "string"
+                        },
+                        "skuState": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "productId": {
+                            "index": "not_analyzed",
+                            "store": true,
+                            "type": "string"
+                        },
+                        "weight": {
+                            "store": true,
+                            "type": "float"
+                        },
+                        "promoScore": {
+                            "store": true,
+                            "type": "float"
+                        },
+                        "jdTime": {
+                            "store": true,
+                            "type": "long"
+                        },
+                        "productState": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "categoryBrand": {
+                            "norms": {
+                                "enabled": false
+                            },
+                            "analyzer": "whitespace",
+                            "type": "string"
+                        },
+                        "sortNo": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "skuNo": {
+                            "index": "not_analyzed",
+                            "store": true,
+                            "type": "string"
+                        },
+                        "jdPrice": {
+                            "store": true,
+                            "type": "float"
+                        },
+                        "shopType": {
+                            "store": true,
+                            "type": "integer"
+                        },
+                        "facet": {
+                            "norms": {
+                                "enabled": false
+                            },
+                            "analyzer": "whitespace",
+                            "type": "string"
+                        },
+                        "startDate": {
+                            "store": true,
+                            "type": "long"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "aliases": { }
+
+}
